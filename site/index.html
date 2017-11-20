@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Log in page</title>
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" rel="stylesheet">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="jquery-tmpl/jquery.tmpl.min.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <script src="js/script.js"></script>
+        <script src="js/log.js"></script>
+        <script src="js/reg.js"></script>
+        <script src="js/recov.js"></script>
+        <script src="js/news.js"></script>
+        
+        <script>
+            $(function() {
+                var data = [
+                    { name: "Астра", product: "astor", stocklevel: "10", price: 2.99},
+                    { name: "Нарцисс", product: "daffodil", stocklevel: "12", price: 1.99},
+                    { name: "Роза", product: "rose", stocklevel: "2", price: 4.99},
+                    { name: "Пион", product: "peony", stocklevel: "0", price: 1.50},
+                    { name: "Примула", product: "primula", stocklevel: "1", price: 3.12},
+                    { name: "Подснежник", product: "snowdrop", stocklevel: "15", price: 0.99},
+                ];
+                
+                $('#newsTmpl').tmpl(data).appendTo('.news');
+            
+            });
+        </script>
+        <script id="newsTmpl" type="text/x-jquery-tmpl" >
+            <div class="news-block">
+                <div class="person-icon">
+                    <div class="avatar">
+                        
+                    </div>
+                </div>
+                <div class="main-content">
+                    <div class="main-text">
+                        <div class="box" id="box1">${text}</div>
+                        <div class="toggle-text" id="show">Подробнее</div>
+                        <div class="close-text" id="hide">Закрыть</div>
+                    </div>
+                    <div class="main-photo">
+                        <img src="img/fon-2.jpg">
+                    </div>
+                </div>
+            </div>
+            </div>
+
+        </script>
+    </head>
+    <body>
+            <div class="navbar navbar-inverse">
+                    <div class="container">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-toggle="offcanvas"  data-target=".navbar-collapse" data-recalc="false" data-canvas=".canvas">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                  </button>
+                                  <a class="navbar-brand" href="#"></a>
+                            </div>
+                            <div class="navbar-collapse collapse">
+                                <ul class="nav navbar-nav">
+                                  <li><a href="#main">Main</a></li>
+                                  <li><a href="#">Sign up</a></li>
+                                  <li><a href="#">Log in</a></li>
+                                  <li><a href="#">News</a></li>
+                                </ul>
+                                <div class="nav navbar-nav navbar-right">
+                                    <p class="navbar-text" id="users-log"></p>
+                                </div>
+                            </div>
+                    </div>
+            </div>
+<div class="canvas">
+    <div class="main container ">
+        <div class="row">
+            <div class="for_form">
+                <div class="log-auth-btn">
+                    <div class="btn btn-success" id="log_in">Log in</div>
+                    <div class="btn btn-success" id="sign_up">Sign up</div>
+                </div>
+                <div class="form" id="log_form">
+                <form action="php/login.php" method="post" id="log_in_form">
+                    <h4 class="welkome-txt">Log in</h4>
+                    <input type="text" name="login" placeholder="Login" required><br>
+                    <input type="password" name="password" placeholder="Password" required><br>
+                    <input type="submit" name="submit" value="Log in" class="btn btn-success">
+                </form>   
+                <div id="forget"><a href="#">Did you forget a password?</a></div>
+                </div>
+                <div class="form" id="registration_form" style="display: none">
+                <form action="php/registration.php" method="post" id="registration">
+                    <h4 class="welkome-txt">Sign up</h4>
+                    <input type="text" name="login" placeholder="Login" required><br>
+                    <input type="email" name="email" placeholder="Email" required><br>
+                    <input type="password" name="password" placeholder="Password" required><br>
+                    <input type="password" name="checking-password" placeholder="Checking of password" required><br>
+                    <input type="submit" name="submit" value="Sign up" class="btn btn-success">
+                </form>
+                </div>
+                <div class="form" id="password_recovery_form"  style="display: none">
+                    <form action="php/recovery.php" method="post" id="recovery" >
+                        <h4 class="welkome-txt">Password recovery</h4>
+                        <input type="email" name="forgoted-email" placeholder="Email" required><br>
+                        <input type="submit" name="submit" value="Recovery" class="btn btn-success">
+                    </form>
+                    </div>
+        </div>
+
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="position: fixed;
+            left: 0;
+            top: 25%;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            text-align: center;
+            z-index:9999;">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content" style="background-color: rgba(72,72,72,0.7);opacity: 0.9;">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: #fff;"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel" style="color: #fff; text-align:center"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <p style="text-align:center"><img src="img/ok.png"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <p style="text-align:center"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></p>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="for_news">
+        <div class="container">
+            <div class="row">
+                <div class="news-content">
+                        <div class="add" style="display: none;">
+                                <div class="news-text">Add news</div>
+                                <div class="person-icon">
+                                        <div class="avatar">
+                                            
+                                        </div>
+                                    </div>
+                            <div class="add-block">
+                                <form action="php/news.php" method="post" id="news">
+                                <textarea class="add-text" name="textarea" rows="4" ></textarea><br>
+                                <input type="file" name="img" class="add-file">
+                                <input type="submit" name="submit-add" class="btn btn-secondary" value="Add news">
+                                </form>
+                            </div>
+                        </div>
+
+                    <div class="news">
+                        <div class="news-text">News blog</div>
+                        
+                        <div class="news-block" id="news-block1">
+                            <div class="person-icon">
+                                <div class="avatar">
+                                    
+                                </div>
+                            </div>
+                            <div class="main-content">
+                                <div class="main-text">
+                                    <div class="box" id="box1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, omnis, tenetur suscipit libero magnam fuga facilis aspernatur cum a, expedita nihil illum ut accusantium! Excepturi fugiat nisi impedit adipisci sunt officia suscipit nesciunt iste, illum rem aliquid, tempora ipsum minima deleniti in esse dolorum at. Consequuntur totam illum rerum consectetur a fugiat consequatur aut voluptas iste veniam id dolores ipsum culpa aperiam laudantium nam numquam ex neque necessitatibus, doloremque explicabo temporibus! Veniam provident assumenda sapiente ipsa temporibus eaque fuga quod fugit aut at! Cum illum ad tempora ratione impedit, voluptas rerum? Debitis culpa adipisci molestias quam nemo consectetur illum vero minima esse doloribus, iste ut incidunt, veniam exercitationem. Quaerat vitae, doloribus exercitationem aspernatur explicabo cumque sit optio aliquam, molestias, non sequi odit in quidem dolorem repudiandae? Amet dolor reiciendis commodi et sapiente autem quaerat iusto ducimus ea, fuga nobis repudiandae earum? Ab aspernatur laudantium porro quidem tenetur sunt, eligendi minima iure fuga? Impedit quasi amet id dicta dolorem ut quaerat nulla in quis. Aspernatur rerum, dolore quae ullam officia corrupti temporibus unde libero similique vel consequatur facere, placeat fugiat aliquid eveniet distinctio. Vitae iusto omnis sunt aperiam at vel hic culpa distinctio, ut alias officiis eum quod nostrum. Ex explicabo veniam reprehenderit inventore dolorem in tempora, ab odio sunt nisi ipsum, accusantium nostrum voluptatibus, nesciunt magnam suscipit soluta qui totam omnis id architecto! Deleniti molestiae dolorum tempora, optio ducimus possimus vero excepturi velit, sequi nesciunt veniam esse illum nam libero laboriosam ipsam nostrum explicabo deserunt cupiditate quam aliquid iure doloremque ea facere. Impedit sunt porro consectetur, officia tempora dolor non eum dignissimos quas repellat unde voluptas asperiores magni nulla, officiis recusandae animi! Et ad, error, a impedit iusto iure incidunt tenetur est ea commodi ipsum tempore? Quaerat atque, sint dolores veniam explicabo similique quibusdam alias ipsa? Ad suscipit blanditiis veritatis?</div>
+                                    <div class="toggle-text" id="show">Подробнее</div>
+                                    <div class="close-text" id="hide">Закрыть</div>
+                                </div>
+                                <div class="main-photo">
+                                    <img src="img/fon-2.jpg">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="news-block" id="news-block2">
+                            <div class="person-icon">
+                                <div class="avatar">
+                                    
+                                </div>
+                            </div>
+                            <div class="main-content">
+                                <div class="main-text">
+                                    <div class="box" id="box2">Lorem ipsum dlor dg amet consectetur adipisicing elit. Temporibus, omnis, tenetur suscipit libero magnam fuga facilis aspernatur cum a, expedita nihil illum ut accusantium! Excepturi fugiat nisi impedit adipisci sunt officia suscipit nesciunt iste, illum rem aliquid, tempora ipsum minima deleniti gddgg gglhg gkkl</div>
+                                    <div class="toggle-text" id="show">Подробнее</div>
+                                    <div class="close-text" id="hide">Закрыть</div>
+                                </div>
+                                <div class="main-photo">
+                                    <img src="img/fon-2.jpg">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+        </div>
+        </div>
+        </div>
+    </div>   
+
+</div>
+        <footer>
+            <div class="foter-content news-block">
+                    <p>Author: Alyona Vereshaka</p>
+                    <p>E-mail: alenavereshaka16@gmail.com</p>
+            </div>
+        </footer>
+    </body>
+</html>

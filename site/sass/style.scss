@@ -1,0 +1,348 @@
+body{
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 20px; 
+    background: url('http://thecodeplayer.com/u/m/b1.png') no-repeat;
+    background-size: 100% 550px;
+}
+h4{
+    text-align: center;
+    font-size: 25px;
+    color: #fff;
+}
+.person-icon{
+    float: left;
+    position:relative;
+    width: 70px;
+    height: 70px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1 solid rgba(0, 0, 0, 0.3);
+    border-radius: 100px;
+    margin-left: 3%;
+    margin-top: 10px;
+    @media (max-width: 525px){
+        width: 40px ; 
+        height: 40px;
+    }
+    .avatar{
+        float: left;
+        position:absolute;
+        width: 60px;
+        height: 60px;
+        background-color: rgba(0, 0, 0, 0.9);
+        border-radius: 100px;
+        margin: 5px; 
+        @media (max-width: 525px){
+                width: 30px;
+                height: 30px;
+        }
+    }
+}
+.navbar{
+    background-color: rgba(0,0,0, 0.27);
+    opacity: 0.6;
+    border: 0;
+    border-radius: 0px;
+    font-size: 25px;
+    &-header {
+        padding: 1rem 0;
+    }
+    .navbar-nav > li > a {
+        padding-top: 26.5px;
+        padding-bottom: 26.5px;
+        line-height: 27px;
+    }
+    .navbar-nav > p {
+        padding: 7px;
+        padding-right: 0;
+    }
+    &-collapse {
+        position: relative;
+    }
+}
+
+.for_form{
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1 solid rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    max-width:450px;
+    height: 400px;
+    padding: 30px;
+    margin: 20px auto;   
+        .btn-success{
+        font-size: 20px;
+        font-weight: normal;
+        }
+
+        .log-auth-btn {
+        margin: 5px auto;
+            .btn-success{
+            width: 49%;
+            }
+        }
+        #forget { 
+            padding-top: 5px;  
+            width: 250px;  
+            font-size: 22px;
+            a{
+                color: #fff;
+            }
+        }
+
+        .form{
+            max-width:200px;
+            margin: 25px auto; 
+
+            input[type="text"],input[type="password"],input[type="email"]{
+                margin: 5px 0;
+                background: none;
+                color: #fff;
+                font-size: 20px;
+                width: 100%;
+                height: 35px;
+                border: 2px solid #fff;
+                border-radius: 4px;
+                padding: 10px;
+                &:focus {
+                    outline:0;
+                    border-color: #449d44;
+                } 
+                outline: none;
+                // &:-webkit-autofill {
+                //     -webkit-box-shadow: inset 0 0 0 50px rgba(0, 0, 0, 0.85) !important; /* Цвет фона */
+                //     -webkit-text-fill-color: #fff !important; /* цвет текста */
+                //     color: #fff !important; /* цвет текста */
+                // }
+            }
+            input[type="submit"]{
+                margin: 10px auto;
+                width: 100%;
+                &:focus {
+                    outline:0;
+                } 
+            }
+            #password_recovery_form{
+                display: none;
+            }
+        } 
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-transition-delay: 9999s;
+    -webkit-transition: color 9999s ease-out, background-color 9999s ease-out;
+}
+
+.modal {
+    position: fixed;
+    left: 0;
+    top: 25%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    text-align: center;
+    z-index:9999;
+        .modal-content{background-color: rgba(72,72,72,0.7);opacity: 0.9;}
+        .close{ color: #fff;}
+        .modal-title{color: #fff; text-align:center;}
+        p{text-align:center}
+    }
+   
+.for_news{
+    background: url("../img/triangular_@2X.png") repeat;
+    .news-text{
+        padding-top: 20px;
+        font-size: 40px;
+        color: #fff;
+        text-align: center;
+    }
+    .news-content{
+        display: inline-block;
+        .news{
+            display: inline-block;
+            margin-top: 30px;
+            background-color: rgba(0, 0, 0, 0.3);
+            border: 1 solid rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            margin-bottom: 50px;
+            
+            .news-block{
+            width: 100%;
+            padding: 5px;
+            display: inline-block;
+            .main-content{
+                // max-width: 550px;
+                max-width: 73%;
+                min-width: 73%;
+                min-height: 350px;
+                max-height: 350px;
+                background-color: rgba(0, 0, 0, 0.3);
+                border-radius: 10px;
+                float: left;
+                margin-left: 3%;
+                margin-right: 7%;
+                margin-top: 10px;
+                padding: 25px;
+                color: #111;         
+                .box{
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 4;
+                    -webkit-box-orient: vertical;
+                }
+                .toggle-text{
+                    font-size: 15px;
+                    float: right;
+                    margin: 5px;
+                }
+                .close-text{
+                    @extend .toggle-text;
+                    display: none;
+                }
+                .main-photo{
+                    margin: 3% 33% 2%;
+                    // margin: 0 25%;
+                    // display: inline-block;
+                    img{
+                    max-width: 270px;
+                    max-height: 170px; 
+                    // padding-left: 25%;  
+                    }
+                    @media (max-width: 991px){
+                        margin: 7% 25% 2%;
+                        img{
+                            max-width: 250px;
+                            max-height: 150px;   
+                            }
+                    }
+                    @media (max-width: 650px){
+                        margin: 10% 20% 2%;
+                    }
+                    @media (max-width: 590px){
+                        margin: 10% 15% 2%;
+                    }
+                    @media (max-width: 525px){
+                        margin: 10% 10% 2%;
+                    }
+                    @media (max-width: 475px){
+                        margin: 10% 5% 2%;
+                    }
+                    @media (max-width: 425px){
+                        margin: 10% 5% 2%;
+                        img{
+                            max-width: 230px;
+                            max-height: 150px;   
+                            }
+                    }
+                    @media (max-width: 400px){
+                        margin: 20% 4% 2%;
+                        margin-bottom: 0;
+                        img{
+                            max-width: 200px;
+                            max-height: 130px;   
+                            }
+                    }
+                    @media (max-width: 321px){
+                        margin: 20% 0 2%;
+                        margin-bottom: 0;
+                        img{
+                            max-width: 180px;
+                            max-height: 130px;   
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .add{
+            width: 100%;
+            padding: 5px;
+            position: relative;
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            margin-top: 2%;
+            .news-text{
+                padding-top: 10px;
+            }
+            .add-block{
+                max-width: 73%;
+                min-width: 73%;
+                min-height: 210px;
+                max-height: 210px;
+                background-color: rgba(0, 0, 0, 0.3);
+                border-radius: 10px;
+                float: left;
+                margin-left: 3%;
+                margin-right: 7%;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                padding: 25px;
+                color: #111;
+                
+                .add-text{
+                    width: 100%;
+                    background-color: rgba(255, 255, 255, 0.3);
+                    border: 1px solid rgba(0, 0, 0, 0.1);
+                    border-radius: 10px;
+                    &:focus{
+                        outline:0;
+                        border: 1px solid rgba(0, 0, 0, 0.3);
+                    }
+                    }
+                .add-file{
+                    font-size: 16px;
+                    margin-top: 5px;
+                    float: left;
+                    &:focus{
+                        outline:0;
+                    }
+                }
+                .btn{
+                    float: right;
+                    font-size: 18px;
+                    &:focus{
+                        outline:0;
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+footer{
+       border: 0;
+       border-radius: 0px;
+       font-size: 23px;
+       height: 60px;
+       background: url('http://thecodeplayer.com/u/m/b1.png');
+       background-size: 100%;
+       color: grey;
+       .foter-content{
+           background-color: rgba(0,0,0, 0.27);
+           height: 100%;
+           width: 100%;
+           padding: 15px 2.7em;
+           p{
+            display: inline-block;
+            margin: 0 15px;
+            
+           }
+       }
+       @media(max-width: 650px){
+           height: 72px;
+           font-size: 20px;
+       }
+       @media(max-width: 436px){
+        font-size: 18px;
+        height: 70px;
+        }
+        @media(max-width: 351px){
+            font-size: 16px;
+            height: 70px;
+        }
+   }
+   
